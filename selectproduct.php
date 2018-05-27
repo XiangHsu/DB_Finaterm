@@ -5,7 +5,7 @@
    $password="data";//密碼
    $db="104021042"; //資料庫名稱
    $con=mysqli_connect($host, $username, $password, $db);
-    $sql="SELECT COUNT(title) as total FROM (SELECT database_product.title AS title FROM database_product GROUP BY title) AS COUNT";
+    $sql="SELECT * FROM database_product";
     $result=mysqli_query($con,$sql);
     $number_of_rows = mysqli_num_rows($result);
   
