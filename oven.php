@@ -5,7 +5,7 @@
    $password="data";//密碼
    $db="104021042"; //資料庫名稱
    $con=mysqli_connect($host, $username, $password, $db);
-    $sql="SELECT * FROM database_product GROUP BY name";
+    $sql="SELECT * from food where kind='烤箱'";
     $result=mysqli_query($con,$sql);
     $number_of_rows = mysqli_num_rows($result);
   
@@ -17,7 +17,7 @@
                           $data =$row;
                       //echo $row["total"];
                   }
-         }else{
+          }else{
 			  echo "Failed";
 		  }
     //echo json_encode(array("data"=>$temp_array));

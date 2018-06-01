@@ -5,7 +5,7 @@
    $password="data";//密碼
    $db="104021042"; //資料庫名稱
    $con=mysqli_connect($host, $username, $password, $db);
-    $sql="SELECT * FROM database_product GROUP BY name";
+    $sql="SELECT COUNT(name) as total FROM food";
     $result=mysqli_query($con,$sql);
     $number_of_rows = mysqli_num_rows($result);
   

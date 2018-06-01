@@ -10,7 +10,7 @@
         xhttp=new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
           var data = JSON.parse(this.response)
-          //$("#product").children("#1").children("#price").html("$"+JSON.parse(data).price) 
+          //$("#product").children("#1").children("#price").html("$"+data[0].total) 
             var amount=(data[0].total)
             setdata(amount);
         };
@@ -20,11 +20,51 @@
     };
     function setdata(amount){
         var xhttp;
+        var text="";var img="";var text2="";var text3="";var text4="";var text5="";var text6="";var text7="";
         xhttp=new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
           var data = JSON.parse(this.response)
+          for(i=0;i<amount;i++){
+            switch(i){
+                case 0:
+                    document.getElementById("url1").href=data[i].img
+                    document.getElementById("img1").src=data[i].img
+                    document.getElementById("name1").innerHTML=data[i].name
+                    document.getElementById("price1").innerHTML="$"+data[i].price
+                case 1:
+                    document.getElementById("url2").href=data[i].img
+                    document.getElementById("img2").src=data[1].img
+                    document.getElementById("name2").innerHTML=data[i].name
+                    document.getElementById("price2").innerHTML="$"+data[i].price
+                case 2:
+                    document.getElementById("url3").href=data[i].img
+                    document.getElementById("img3").src=data[i].img
+                    document.getElementById("name3").innerHTML=data[i].name
+                    document.getElementById("price3").innerHTML="$"+data[i].price
+                case 3:
+                    document.getElementById("url4").href=data[i].img
+                    document.getElementById("img4").src=data[i].img
+                    document.getElementById("name4").innerHTML=data[i].name
+                    document.getElementById("price4").innerHTML="$"+data[i].price
+                case 4:
+                    document.getElementById("url5").href=data[i].img
+                    document.getElementById("img5").src=data[i].img
+                    document.getElementById("name5").innerHTML=data[i].name
+                    document.getElementById("price5").innerHTML="$"+data[i].price
+                case 5:
+                    document.getElementById("url6").href=data[i].img
+                    document.getElementById("img6").src=data[i].img
+                    document.getElementById("name6").innerHTML=data[i].name
+                    document.getElementById("price6").innerHTML="$"+data[i].price
+                case 6:
+                    document.getElementById("url7").href=data[i].img
+                    document.getElementById("img7").src=data[i].img
+                    document.getElementById("name7").innerHTML=data[i].name
+                    document.getElementById("price7").innerHTML="$"+data[i].price
+            }
+          };
           //$("#product").children("#1").children("#price").html("$"+JSON.parse(data).price) 
-            $("#product").append()
+            //$("#content").html(text)
         };
         xhttp.open("POST","selectproduct.php",true)
         xhttp.send();
@@ -42,7 +82,13 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+table,th,tr{
+    padding: 50px;
+}
+img{
+    height: :200px;
+    width: :200px;
+}
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -88,72 +134,122 @@ body {
 </div>
 
 <div class="content" id="content">
-  <ul id="product">
-      <li id="1">
+ <center>
+    
+     <table id="product">
+     <tr><th>
+    
           <div name="img">
-             <a href="">
-              <img src="https://static5.cilory.com/260520-product_thumb_default/nologo-peach-polo-t-shirt.jpg"/>
+             <a href="" id="url1">
+              <img src="" id="img1" height="250"/>
              </a>
           </div>
-          <div id="name">
-              <a href="">NoLogo Polo</a>
+          <a href="" id="url1">
+          <div id="name1">
           </div>
-          <div id="price">
+          </a>
+          <div>
+          <span id="price1"></span>
           </div>
-      </li>
-      <li id="2">
+         
+         </th>
+      <th>
+      
           <div name="img">
-             <a href="">
-              <img src="https://static5.cilory.com/260520-product_thumb_default/nologo-peach-polo-t-shirt.jpg"/>
+             <a href="" id="url2">
+              <img src="" id="img2" height="250"/>
              </a>
           </div>
-          <div id="name">
-              <a href="">NoLogo Polo</a>
+          <a href="" id="url2">
+          <div id="name2">
           </div>
-          <div id="price">
-              <span>$550</span>
+          </a> 
+          <div>
+          <span id="price2"></span>
           </div>
-      </li>
-      <li id="3">
+          
+         </th>
+      <th>
+      
           <div name="img">
-             <a href="">
-              <img src="https://static5.cilory.com/260520-product_thumb_default/nologo-peach-polo-t-shirt.jpg"/>
+             <a href="" id="url3">
+              <img src="" id="img3" height="250"/>
              </a>
           </div>
-          <div id="name">
-              <a href="">NoLogo Polo</a>
+           <a href="" id="url3">
+          <div id="name3">
           </div>
-          <div id="price">
-              <span>$550</span>
+          </a>
+          <div>
+          <span id="price3"></span>
           </div>
-      </li>
-      <li id="4">
+         </th>
+         
+      </tr>
+      <tr><th>
+      
           <div name="img">
-             <a href="">
-              <img src="https://static5.cilory.com/260520-product_thumb_default/nologo-peach-polo-t-shirt.jpg"/>
+             <a href="" id="url4">
+              <img src="" id="img4" height="250"/>
              </a>
           </div>
-          <div id="name">
-              <a href="">NoLogo Polo</a>
+          <a href="" id="url4">
+          <div id="name4">  
           </div>
-          <div id="price">
-              <span>$550</span>
+          </a>
+          <div>
+          <span id="price4"></span>
           </div>
-      </li>
-      <li id="5">
+          
+          </th>
+      <th>
+      
           <div name="img">
-             <a href="">
-              <img src="https://static5.cilory.com/260520-product_thumb_default/nologo-peach-polo-t-shirt.jpg"/>
+             <a href="" id="url5">
+              <img src="" id="img5" height="250"/>
              </a>
           </div>
-          <div id="name">
-              <a href="">NoLogo Polo</a>
+          <a href="" id="url5">
+          <div id="name5">
           </div>
-          <div id="price">
-              <span>$550</span>
+          </a>
+          <div id="price5">
           </div>
-      </li>
-  </ul>
+          
+         </th>
+      <th>
+
+          <div name="img">
+             <a href="" id="url6">
+              <img src="" id="img6" height="250" width="250"/>
+             </a>
+          </div>
+          <a href="" id="url6">
+          <div id="name6">  
+          </div>
+          </a>
+          <div id="price6">
+          </div>
+          
+      </th>
+      </tr>
+      <tr><th>
+          <div name="img">
+             <a href="" id="url7">
+              <img src="" id="img7" height="250"/>
+             </a>
+          </div>
+           <a href="" id="url7">
+          <div id="name7">
+          </div>
+          </a>
+          <div id="price7">
+          </div>
+        
+      </th></tr>
+      </table>
+
+</center>
 </div>
 
 <div class="footer">

@@ -5,7 +5,7 @@
    $password="data";//密碼
    $db="104021042"; //資料庫名稱
    $con=mysqli_connect($host, $username, $password, $db);
-    $sql="SELECT * FROM database_product GROUP BY name";
+    $sql="SELECT * FROM `food` INNER JOIN click_times on food.kind=click_times.kind ORDER BY click_times.times DESC";
     $result=mysqli_query($con,$sql);
     $number_of_rows = mysqli_num_rows($result);
   

@@ -5,7 +5,7 @@
    $password="data";//密碼
    $db="104021042"; //資料庫名稱
    $con=mysqli_connect($host, $username, $password, $db);
-    $sql="SELECT * FROM database_product GROUP BY name";
+    $sql="SELECT kind FROM `click_times` ORDER BY times DESC LIMIT 3";
     $result=mysqli_query($con,$sql);
     $number_of_rows = mysqli_num_rows($result);
   
@@ -17,11 +17,27 @@
                           $data =$row;
                       //echo $row["total"];
                   }
-         }else{
+              
+              $second=$temp_array[1]['kind'];
+              $sql2="Select * from food where kind='$second'";
+              $result2=mysqli_query($con,$sql2);
+                $number_of_rows = mysqli_num_rows($result2);
+                
+                $array  = array();
+  
+                if($number_of_rows > 0) {
+                  while ($row = mysqli_fetch_assoc($result2)) {
+                          $array[] = $row;
+                          $data =$row;
+                      //echo $row["total"];
+                  }
+              
+         }
+          }else{
 			  echo "Failed";
 		  }
     //echo json_encode(array("data"=>$temp_array));
-    echo json_encode($temp_array);
+    echo json_encode($array);
     mysqli_close($con);
 
 ?>

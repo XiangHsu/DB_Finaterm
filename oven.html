@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<title>JFF</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: auto;
+}
+.styled-select.slate input {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: auto;
+}
+.styled-select.slate button {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: auto;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.addEventListener("load",findmax);
+    function findmax(){
+        var xhttp;
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+          var data = JSON.parse(this.response) 
+            var first=(data[0].name)
+            var second=(data[1].kind)
+            var third=(data[2].kind)
+            document.getElementById("url1").href=data[0].url
+            document.getElementById("img1").src=data[0].img
+            document.getElementById("img1").alt=data[0].kind
+            document.getElementById("name1").innerHTML=data[0].name
+            document.getElementById("in1").innerHTML=data[0].ingredients
+            document.getElementById("url2").href=data[1].url
+            document.getElementById("img2").src=data[1].img
+            document.getElementById("img2").alt=data[1].kind
+            document.getElementById("name2").innerHTML=data[1].name
+            document.getElementById("in2").innerHTML=data[1].ingredients
+            document.getElementById("url3").href=data[2].url
+            document.getElementById("img3").src=data[2].img
+            document.getElementById("img3").alt=data[2].kind
+            document.getElementById("name3").innerHTML=data[2].name
+            document.getElementById("in3").innerHTML=data[2].ingredients
+            document.getElementById("url4").href=data[3].url
+            document.getElementById("img4").src=data[3].img
+            document.getElementById("img4").alt=data[3].kind
+            document.getElementById("name4").innerHTML=data[3].name
+            document.getElementById("in4").innerHTML=data[3].ingredients
+            document.getElementById("url5").href=data[4].url
+            document.getElementById("img5").src=data[4].img
+            document.getElementById("img5").alt=data[4].kind
+            document.getElementById("name5").innerHTML=data[4].name
+            document.getElementById("in5").innerHTML=data[4].ingredients
+            document.getElementById("url6").href=data[5].url
+            document.getElementById("img6").src=data[5].img
+            document.getElementById("img6").alt=data[5].kind
+            document.getElementById("name6").innerHTML=data[5].name
+            document.getElementById("in6").innerHTML=data[5].ingredients
+            document.getElementById("url7").href=data[6].url
+            document.getElementById("img7").src=data[6].img
+            document.getElementById("img7").alt=data[6].kind
+            document.getElementById("name7").innerHTML=data[6].name
+            document.getElementById("in7").innerHTML=data[6].ingredients
+            document.getElementById("url8").href=data[7].url
+            document.getElementById("img8").src=data[7].img
+            document.getElementById("img8").alt=data[7].kind
+            document.getElementById("name8").innerHTML=data[7].name
+            document.getElementById("in8").innerHTML=data[7].ingredients
+            document.getElementById("url9").href=data[8].url
+            document.getElementById("img9").src=data[8].img
+            document.getElementById("img9").alt=data[8].kind
+            document.getElementById("name9").innerHTML=data[8].name
+            document.getElementById("in9").innerHTML=data[8].ingredients
+            document.getElementById("url10").href=data[9].url
+            document.getElementById("img10").src=data[9].img
+            document.getElementById("img10").alt=data[9].kind
+            document.getElementById("name10").innerHTML=data[9].name
+            document.getElementById("in10").innerHTML=data[9].ingredients
+            document.getElementById("url11").href=data[10].url
+            document.getElementById("img11").src=data[10].img
+            document.getElementById("img11").alt=data[10].kind
+            document.getElementById("name11").innerHTML=data[10].name
+            document.getElementById("in11").innerHTML=data[10].ingredients
+            document.getElementById("url12").href=data[11].url
+            document.getElementById("img12").src=data[11].img
+            document.getElementById("img12").alt=data[11].kind
+            document.getElementById("name12").innerHTML=data[11].name
+            document.getElementById("in12").innerHTML=data[11].ingredients
+        };
+        xhttp.open("POST","oven.php",true)
+        xhttp.send();
+    };
+    $(document).ready(function(){
+       $("#url1").click(function(){
+           var data=$(this).children("img").attr('alt');
+           update(data);
+       });
+        $("#url2").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url3").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url4").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url5").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url6").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url7").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url8").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url9").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url10").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url11").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+        $("#url12").click(function(){
+           var data=$(this).children("img").attr('alt');
+            update(data);
+       }); 
+    });
+    
+    function update(data){
+        $.post("updatetimes.php",{
+           kind : data 
+        });
+    };
+
+    
+</script>
+<body>
+
+<!-- Sidebar (hidden by default) -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-bar-item w3-button">Close Menu</a>
+  <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="pot.html" onclick="w3_close()" class="w3-bar-item w3-button">電鍋</a>
+  <a href="http://120.108.111.85/phpMyAdmin" onclick="w3_close()" class="w3-bar-item w3-button">DataBase</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+    <div class="w3-right w3-padding-16">
+       <center>
+        <div class="styled-select slate">
+        <select style="font-family:fantasy"><option style="font-family:fantasy">食材找食譜</option><option style="font-family:fantasy">料理方式找食譜</option></select>
+        <input style="font-family:fantasy"/>
+        <button style="font-family:fantasy">搜尋</button>
+        </div>
+      </center>
+    </div>
+    <div class="w3-center w3-padding-16">My Recipe</div>
+  </div>
+</div>
+  
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px" id="content">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+     <a href="" id="url1">
+      <img src=""  style="width:100%" id="img1" class="img">
+      <h3 id="name1"></h3>
+     </a>
+      <span id="in1"></span>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url2">
+      <img src=""  style="width:100%" id="img2">
+      <h3 id="name2"></h3>
+     </a>
+      <p id="in2"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id=url3>
+      <img src="" style="width:100%" id="img3">
+      <h3 id="name3"></h3>
+     </a>
+      <p id="in3"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url4">
+      <img src="" style="width:100%" id="img4">
+      <h3 id="name4"></h3>
+     </a>
+      <p id="in4"></p>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+     <a href="" id="url5">
+      <img src="" style="width:100%" id="img5">
+      <h3 id="name5"></h3>
+     </a>
+      <p id="in5"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url6">
+      <img src="" style="width:100%" id="img6">
+      <h3 id="name6"></h3>
+     </a>
+      <p id="in6"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url7">
+      <img src="" style="width:100%" id="img7">
+      <h3 id="name7"></h3>
+     </a>
+      <p id="in7"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url8">
+      <img src="" style="width:100%" id="img8">
+      <h3 id="name8"></h3>
+     </a>
+      <p id="in8"></p>
+     </div>
+    </div>
+    <!--Third-->
+    <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+     <a href="" id="url9">
+      <img src="" style="width:100%" id="img9">
+      <h3 id="name9"></h3>
+     </a>
+      <p id="in9"></p>
+    </div> 
+    <div class="w3-quarter">
+     <a href="" id="url10">
+      <img src="" style="width:100%" id="img10">
+      <h3 id="name10"></h3>
+     </a>
+      <p id="in10"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url11">
+      <img src="" style="width:100%" id="img11">
+      <h3 id="name11"></h3>
+     </a>
+      <p id="in11"></p>
+    </div>
+    <div class="w3-quarter">
+     <a href="" id="url12">
+      <img src="" style="width:100%" id="img12">
+      <h3 id="name12"></h3>
+     </a>
+      <p id="in12"></p>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+   <center>
+    <div>
+      <h3>FOOTER</h3>
+    </div>
+   </center>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
