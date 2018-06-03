@@ -29,10 +29,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    window.addEventListener("load",setdata);
-    function setdata(){
-            result = window.localStorage.getItem("result");
-            data = JSON.parse(result);
+    window.addEventListener("load",findmax);
+    function findmax(){
+        var xhttp;
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+          var data = JSON.parse(this.response) 
+            var first=(data[0].name)
+            var second=(data[1].kind)
+            var third=(data[2].kind)
             document.getElementById("url1").href=data[0].url
             document.getElementById("img1").src=data[0].img
             document.getElementById("img1").alt=data[0].kind
@@ -94,6 +99,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
             document.getElementById("name12").innerHTML=data[11].name
             document.getElementById("in12").innerHTML=data[11].ingredients
         };
+        xhttp.open("POST","saute.php",true)
+        xhttp.send();
+    };
     $(document).ready(function(){
        $("#url1").click(function(){
            var data=$(this).children("img").attr('alt');
@@ -187,11 +195,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <a href="oven.html" onclick="w3_close()" class="w3-bar-item w3-button">烤箱</a>
   <strong><u>料理方式</u></strong>
   <a href="saute.html" onclick="w3_close()" class="w3-bar-item w3-button">煎</a>
-  <a href="fried.html" onclick="w3_close()" class="w3-bar-item w3-button">炸</a>
+  <a href="fried.html" onclick="w3_close()" class="w3-bar-item w3-button" style="color: red">炸</a>
   <strong><u>資料庫</u></strong>
   <a href="http://120.108.111.85/phpMyAdmin" onclick="w3_close()" class="w3-bar-item w3-button">DataBase</a>
 </nav>
-    <p id="test"></p>
 <div id="main">
 <!-- Top menu -->
 <div class="w3-top">
@@ -200,7 +207,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     <div class="w3-right w3-padding-16">
        <center>
         <div class="styled-select slate">
-        <select style="font-family:fantasy"><option style="font-family:fantasy">食材找食譜</option><option style="font-family:fantasy">料理方式找食譜</option></select>
+        <select style="font-family:fantasy"><option style="font-family:fantasy">食材找食譜</option><option style="font-family:fantasy">料理方式/器具找食譜</option></select>
         <input style="font-family:fantasy"/>
         <button style="font-family:fantasy">搜尋</button>
         </div>
