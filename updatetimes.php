@@ -16,8 +16,6 @@
               
               $second=$temp_array[0]['times']+1;
               $sql2="UPDATE `click_times` SET `times`='$second' where kind='$kind'";
-              //$result2=mysqli_query($con,$sql2);
-              //$number_of_rows = mysqli_num_rows($result2);
                 if ($con->query($sql2) === TRUE) {
                         echo "Record updated successfully";
                     } else {

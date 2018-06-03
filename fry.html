@@ -31,8 +31,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <script>
     window.addEventListener("load",setdata);
     function setdata(){
-            result = window.localStorage.getItem("result");
-            data = JSON.parse(result);
+        var xhttp;
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+          var data = JSON.parse(this.response) 
             document.getElementById("url1").href=data[0].url
             document.getElementById("img1").src=data[0].img
             document.getElementById("img1").alt=data[0].kind
@@ -94,6 +96,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
             document.getElementById("name12").innerHTML=data[11].name
             document.getElementById("in12").innerHTML=data[11].ingredients
         };
+        xhttp.open("POST","fry.php",true)
+        xhttp.send();
+    };
     $(document).ready(function(){
        $("#url1").click(function(){
            var data=$(this).children("img").attr('alt');
@@ -188,11 +193,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <strong><u>料理方式</u></strong>
   <a href="saute.html" onclick="w3_close()" class="w3-bar-item w3-button">煎</a>
   <a href="fried.html" onclick="w3_close()" class="w3-bar-item w3-button">炸</a>
-  <a href="fry.html" onclick="w3_close()" class="w3-bar-item w3-button">炒</a>
+  <a href="fry.html" onclick="w3_close()" class="w3-bar-item w3-button" style="color: red">炒</a>
   <strong><u>資料庫</u></strong>
   <a href="http://120.108.111.85/phpMyAdmin" onclick="w3_close()" class="w3-bar-item w3-button" target="_blank">DataBase</a>
 </nav>
-    <p id="test"></p>
 <div id="main">
 <!-- Top menu -->
 <div class="w3-top">
