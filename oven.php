@@ -15,12 +15,10 @@
                   while ($row = mysqli_fetch_assoc($result)) {
                           $temp_array[] = $row;
                           $data =$row;
-                      //echo $row["total"];
                   }
           }else{
 			  echo "Failed";
 		  }
-    //echo json_encode(array("data"=>$temp_array));
     echo json_encode($temp_array);
     mysqli_close($con);
 
